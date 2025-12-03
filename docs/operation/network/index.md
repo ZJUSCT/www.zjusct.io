@@ -31,7 +31,7 @@ tags:
 
     ??? example "例子：黑洞问题"
 
-        RFC 2923 - TCP Problems with Path MTU Discovery 提及了 MTU 发现技术因为配置不当可能产生的黑洞问题。**这个问题在我们的运维过程中真实地发生了（参见 [网络技术专题/L2TP#MTU 调优](../network-technology/l2tp.md#l2tp-mtu-调优)**。RFC 2923 对该问题的评价是“非常难以调试”：
+        RFC 2923 - TCP Problems with Path MTU Discovery 提及了 MTU 发现技术因为配置不当可能产生的黑洞问题。**这个问题在我们的运维过程中真实地发生了（参见 [网络技术专题/L2TP#MTU 调优](./network-technology/l2tp.md#l2tp-mtu-调优)**。RFC 2923 对该问题的评价是“非常难以调试”：
 
         > This failure is especially difficult to debug, as pings and some interactive TCP connections to the destination host work.  Bulk transfers fail with the first large packet and the connection eventually times out.
         >

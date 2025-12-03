@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block sidebar %}{% endblock %}
+{% block toc %}{% endblock %}
+
+{% block tabs %}
+{{ super() }}
+
+<style>
+    .md-main {
+        flex-grow: 0
+    }
+</style>
+
+
+
+{% endblock %}
+
+
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}

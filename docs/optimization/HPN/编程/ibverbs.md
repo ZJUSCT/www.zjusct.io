@@ -15,7 +15,7 @@
 
 ## 例程
 
-代码见 [`RDMA_RC_example.c`](./index.assets/code/RDMA_RC_example.c)。
+代码见 [`RDMA_RC_example.c`](./code/RDMA_RC_example.c)。
 
 准备阶段：
 

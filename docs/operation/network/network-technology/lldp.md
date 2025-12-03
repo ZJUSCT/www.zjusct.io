@@ -58,9 +58,3 @@ LLDP 报文发送机制：
 LLDP 报文接收机制：
 
 当使能 LLDP 功能时，设备会对收到的 LLDP 报文及其携带的 TLV 进行有效性检查，通过检查后再将邻居信息保存到本地设备，并根据 LLDPDU 报文中 TLV 携带的 TTL 值设置邻居信息在本地设备的老化时间。如果接收到的 LLDPDU 中的 TTL 值等于零，将立刻老化掉该邻居信息。
-
-## LLDP 实践
-
-在 Linux 系统上使用 `lldpd`，见 [Linux 网络#lldpd](../network/linux.md#lldpd)。
-
-在华为设备上配置和查看 LLDP，见 [华为#LLDP](../network/huawei.md#lldp)。

@@ -102,10 +102,6 @@ tags:
 PDU 组件
 </figcaption></center>
 
-## 网络硬件
-
-光模块、网络线缆、网络设备等硬件介绍见 [认识数据中心网络#认识硬件](../network/datacenter.md#认识硬件)。
-
 ## 外围设备及其接口
 
 !!! quote

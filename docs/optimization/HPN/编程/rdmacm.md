@@ -35,7 +35,7 @@ int rdma_create_srq_ex(struct rdma_cm_id *id, struct ibv_srq_init_attr_ex *attr)
 
 ## 例程
 
-代码见 [`mckey.c`](./index.assets/code/mckey.c)。
+代码见 [`mckey.c`](./code/mckey.c)。
 
 RDMA_CM 用于管理 RDMA 连接，包装了使用 socket 编程交换 QP、R_Key 等信息的过程，减少代码量。它的接口与 Socket 类似：
 
