@@ -33,7 +33,7 @@ theme:
   favicon: assets/zjusct.png
   palette:
     - media: "(prefers-color-scheme)"
-      primary: pink
+      primary: black
       toggle:
         icon: material/brightness-auto
         name: 切换至浅色模式
