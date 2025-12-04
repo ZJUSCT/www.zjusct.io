@@ -3,8 +3,8 @@ export const SITE_DATA = {
     title: "ZJUSCT",
     role: "Zhejiang University Supercomputing Team",
     logoText: "Z",
-    bio: `We are students from Zhejiang University Supercomputing Team (ZJUSCT), affiliated to College of Computer Science and Technology, ZJU. 
-    
+    bio: `We are students from Zhejiang University Supercomputing Team (ZJUSCT), affiliated to College of Computer Science and Technology, ZJU.
+
     We participate in domestic and international SCC competitions, and provide some public services in ZJU including ZJU Mirror and ZJU Git. We also provide the HPC101 summer course for freshmen in ZJU.`,
     advisors: [
       "Jianhai Chen",
@@ -54,7 +54,7 @@ export const SITE_DATA = {
       title: "ZJU Git",
       description: "Git Service for ZJU students",
       tags: [],
-      icon: "/assets/zju-git.svg",
+      icon: "./assets/zju-git.svg",
       links: [
         { name: "Site Link", url: "https://git.zju.edu.cn/", icon: "link" }
       ]
@@ -64,7 +64,7 @@ export const SITE_DATA = {
       title: "ZJU Mirror",
       description: "ZJU Open Source Mirror Site",
       tags: ["Public Service"],
-      icon: "/assets/zju-mirror.svg",
+      icon: "./assets/zju-mirror.svg",
       links: [
         { name: "Site Link", url: "https://mirror.zju.edu.cn/", icon: "link" },
         { name: "Manager Code", url: "https://github.com/ZJUSCT/MirrorsDotNet/", icon: "github" },
@@ -76,7 +76,7 @@ export const SITE_DATA = {
       title: "HPC101",
       description: "An introductory course on High Performance Computing",
       tags: [],
-      icon: "/assets/zjusct-hpc101.svg",
+      icon: "./assets/zjusct-hpc101.svg",
       links: [
         { name: "Site Link", url: "https://hpc101.zjusct.io/", icon: "link" },
       ]
@@ -86,7 +86,7 @@ export const SITE_DATA = {
       title: "HPCWeek",
       description: "High Performance Computing competition for ZJU students",
       tags: [],
-      icon: "/assets/hpcweek.jpg",
+      icon: "./assets/hpcweek.jpg",
       links: [
         { name: "Site Link", url: "https://oj.clusters.zjusct.io/", icon: "link" },
         { name: "CSOJ Code", url: "https://github.com/ZJUSCT/CSOJ", icon: "github" }

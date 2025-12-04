@@ -41,17 +41,17 @@ export function Hero() {
         <motion.div variants={itemVariants} className="relative flex flex-col items-center w-full mt-2 md:mt-8">
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 mb-2 md:mb-6 w-full">
             <img
-              src="/assets/zjusct-wide-clear.svg"
+              src="./assets/zjusct-wide-clear.svg"
               alt="ZJUSCT"
               className="w-full max-w-5xl h-32 object-contain drop-shadow-sm dark:hidden"
             />
             <img
-              src="/assets/zjusct-wide-dark-clear.svg"
+              src="./assets/zjusct-wide-dark-clear.svg"
               alt="ZJUSCT"
               className="w-full max-w-5xl h-32 object-contain drop-shadow-sm hidden dark:block"
             />
           </div>
-          
+
           <p className="text-xl md:text-3xl font-medium text-muted-foreground tracking-tight max-w-3xl mx-auto mt-0 md:mt-4">
             Infinite Cores, Unlimited Dreams
           </p>
@@ -79,8 +79,8 @@ export function Hero() {
         </motion.div>
 
         {/* 底部数据概览 */}
-        <motion.div 
-          variants={itemVariants} 
+        <motion.div
+          variants={itemVariants}
           className="mt-2 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 pt-10 w-full"
         >
           {[
