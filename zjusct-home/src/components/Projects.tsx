@@ -1,25 +1,27 @@
 import { motion } from "framer-motion";
-import { SITE_DATA } from "@/data/content";
+import { useSiteData } from "@/contexts/SiteDataContext";
 import { Github, ExternalLink } from "lucide-react";
-import { 
+import {
   Card,
-  CardFooter, 
-  CardHeader, 
-  CardTitle 
+  CardFooter,
+  CardHeader,
+  CardTitle
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 export function Projects() {
+  const { data } = useSiteData();
+
   return (
     <section className="py-32 px-6 bg-secondary/20">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Projects</h2>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {SITE_DATA.projects.map((project) => (
+          {data.projects.map((project) => (
             <motion.div
               key={project.id}
               whileHover={{ y: -5 }}
@@ -28,7 +30,9 @@ export function Projects() {
               <Card
                 className="h-full flex flex-col overflow-hidden border-border/60 hover:border-primary/50 transition-colors cursor-pointer"
                 onClick={() => {
-                  window.open(project.links[0].url, "_blank");
+                  if (project.links.length > 0) {
+                     window.open(project.links[0].url, "_blank");
+                  }
                 }}
               >
                 <CardHeader className="pb-2 mb-4">
@@ -51,12 +55,12 @@ export function Projects() {
                           ))}
                         </div>
                       </div>
-                        
+
                       <p className="text-muted-foreground leading-relaxed mt-2">
                         {project.description}
                       </p>
                     </div>
-                        
+
                   </div>
                 </CardHeader>
 

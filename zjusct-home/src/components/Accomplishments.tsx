@@ -1,11 +1,12 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { SITE_DATA } from "@/data/content";
+import { useSiteData } from "@/contexts/SiteDataContext";
 
 export function Accomplishments() {
   const targetRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollRange, setScrollRange] = useState(0);
+  const { data } = useSiteData();
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -31,7 +32,7 @@ export function Accomplishments() {
 
     window.addEventListener("resize", updateScrollRange);
     return () => window.removeEventListener("resize", updateScrollRange);
-  }, []);
+  }, [data]);
 
   const x = useTransform(smoothProgress, [0.02, 0.98], [0, -scrollRange]);
 
@@ -53,7 +54,7 @@ export function Accomplishments() {
           <div className="absolute top-1/2 left-0 right-0 h-px bg-border -z-10" />
 
           <div className="flex items-center">
-            {SITE_DATA.accomplishments.map((item, index) => {
+            {data.accomplishments.map((item, index) => {
               const isTop = index % 2 === 0;
               return (
                 <div

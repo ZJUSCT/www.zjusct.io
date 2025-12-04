@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
-import { SITE_DATA } from "@/data/content";
+import { useSiteData } from "@/contexts/SiteDataContext";
 import { ArrowRight, Terminal, Cpu, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
+  const { data } = useSiteData();
+  const { home } = data;
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -57,14 +60,12 @@ export function Hero() {
           </p>
         </motion.div>
 
-        {/* 简介 */}
         <motion.div variants={itemVariants} className="mt-4 md:mt-8 max-w-2xl mx-auto">
           <p className="text-sm md:text-lg text-muted-foreground/80 leading-relaxed">
-            We are students from Zhejiang University Supercomputing Team (ZJUSCT), affiliated to College of Computer Science and Technology, ZJU.
+            {home.bio.split('\n')[0]}
           </p>
         </motion.div>
 
-        {/* 按钮组 */}
         <motion.div variants={itemVariants} className="mt-4 md:mt-8 flex flex-wrap gap-4 justify-center">
           <Button size="lg" className="h-11 px-6 md:h-12 md:px-8 rounded-full text-base font-semibold shadow-lg shadow-primary/20 hover:scale-105 transition-transform" asChild>
             <a href="/guideline/">
@@ -72,13 +73,12 @@ export function Hero() {
             </a>
           </Button>
           <Button size="lg" variant="outline" className="h-11 px-6 md:h-12 md:px-8 rounded-full text-base bg-background/50 backdrop-blur-sm border-border/60 hover:bg-secondary/50 hover:scale-105 transition-transform" asChild>
-            <a href={SITE_DATA.home.social.github} target="_blank" rel="noreferrer">
+            <a href={home.social.github} target="_blank" rel="noreferrer">
               View on GitHub
             </a>
           </Button>
         </motion.div>
 
-        {/* 底部数据概览 */}
         <motion.div
           variants={itemVariants}
           className="mt-2 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 pt-10 w-full"
@@ -103,7 +103,6 @@ export function Hero() {
   );
 }
 
-// 简单的奖杯图标组件
 function TrophyIcon(props: any) {
   return (
     <svg
