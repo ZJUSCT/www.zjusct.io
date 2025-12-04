@@ -1,13 +1,16 @@
 home:
   title: "ZJUSCT"
   role: "Zhejiang University Supercomputing Team"
-  bio: |
-    We are students from Zhejiang University Supercomputing Team (ZJUSCT), affiliated to College of Computer Science and Technology, ZJU.
+  bio: "We are students from Zhejiang University Supercomputing Team (ZJUSCT), affiliated to College of Computer Science and Technology, ZJU."
   advisors:
-    - "Jianhai Chen"
-    - "Zeke Wang"
-    - "Yin Zhang"
-    - "Shuibing He"
+    - name: "Jianhai Chen"
+      url: "https://mypage.zju.edu.cn/cjh"
+    - name: "Zeke Wang"
+      url: "https://person.zju.edu.cn/wangzeke"
+    - name: "Yin Zhang"
+      url: "https://person.zju.edu.cn/zhangyin"
+    - name: "Shuibing He"
+      url: "https://person.zju.edu.cn/heshuibing"
   interests:
     - "High Performance Computing"
     - "Hetrogeneous Computing"

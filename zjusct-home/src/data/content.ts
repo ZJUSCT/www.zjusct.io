@@ -4,11 +4,16 @@ export interface SocialLinks {
   github: string;
 }
 
+export interface Advisor {
+  name: string;
+  url: string;
+}
+
 export interface HomeData {
   title: string;
   role: string;
   bio: string;
-  advisors: string[];
+  advisors: Advisor[];
   interests: string[];
   social: SocialLinks;
 }

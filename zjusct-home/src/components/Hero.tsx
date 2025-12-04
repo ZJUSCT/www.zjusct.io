@@ -62,8 +62,28 @@ export function Hero() {
 
         <motion.div variants={itemVariants} className="mt-4 md:mt-8 max-w-2xl mx-auto">
           <p className="text-sm md:text-lg text-muted-foreground/80 leading-relaxed">
-            {home.bio.split('\n')[0]}
+            {home.bio}
           </p>
+          {home.advisors.length > 0 && (
+            <p className="text-sm md:text-lg text-muted-foreground/80 leading-relaxed mt-2">
+              Advised by{" "}
+              {home.advisors
+                .map((a, i) =>
+                  a.url
+                    ? <a key={i} href={a.url} target="_blank" rel="noreferrer" className="underline hover:text-primary">
+                        {a.name}
+                      </a>
+                    : a.name
+                )
+                .reduce((prev, curr, i, arr) => {
+                  if (i === 0) return [curr];
+                  if (i === arr.length - 1) return [...prev, " and ", curr];
+                  return [...prev, ", ", curr];
+                }, [] as (string | JSX.Element)[])
+              }
+              .
+            </p>
+          )}
         </motion.div>
 
         <motion.div variants={itemVariants} className="mt-4 md:mt-8 flex flex-wrap gap-4 justify-center">
