@@ -39,7 +39,7 @@ export function Hero() {
       >
 
         <motion.div variants={itemVariants} className="relative flex flex-col items-center w-full mt-2 md:mt-8">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 mb-2 md:mb-6 w-full">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10 mb-2 md:mb-6 w-full">
             <img
               src="./assets/zjusct-wide-clear.svg"
               alt="ZJUSCT"
@@ -59,19 +59,19 @@ export function Hero() {
 
         {/* 简介 */}
         <motion.div variants={itemVariants} className="mt-4 md:mt-8 max-w-2xl mx-auto">
-          <p className="text-base md:text-lg text-muted-foreground/80 leading-relaxed">
+          <p className="text-sm md:text-lg text-muted-foreground/80 leading-relaxed">
             We are students from Zhejiang University Supercomputing Team (ZJUSCT), affiliated to College of Computer Science and Technology, ZJU.
           </p>
         </motion.div>
 
         {/* 按钮组 */}
         <motion.div variants={itemVariants} className="mt-4 md:mt-8 flex flex-wrap gap-4 justify-center">
-          <Button size="lg" className="h-12 px-8 rounded-full text-base font-semibold shadow-lg shadow-primary/20 hover:scale-105 transition-transform" asChild>
+          <Button size="lg" className="h-11 px-6 md:h-12 md:px-8 rounded-full text-base font-semibold shadow-lg shadow-primary/20 hover:scale-105 transition-transform" asChild>
             <a href="/guideline/">
               Explore Docs <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
-          <Button size="lg" variant="outline" className="h-12 px-8 rounded-full text-base bg-background/50 backdrop-blur-sm border-border/60 hover:bg-secondary/50 hover:scale-105 transition-transform" asChild>
+          <Button size="lg" variant="outline" className="h-11 px-6 md:h-12 md:px-8 rounded-full text-base bg-background/50 backdrop-blur-sm border-border/60 hover:bg-secondary/50 hover:scale-105 transition-transform" asChild>
             <a href={SITE_DATA.home.social.github} target="_blank" rel="noreferrer">
               View on GitHub
             </a>

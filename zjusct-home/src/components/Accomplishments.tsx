@@ -38,14 +38,14 @@ export function Accomplishments() {
   return (
     <section ref={targetRef} className="relative h-[600vh] bg-background">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        
-        <div className="absolute left-8 top-32 md:left-20 md:top-48 z-20 pointer-events-none">
+
+        <div className="absolute left-8 top-24 md:left-20 md:top-36 z-20 pointer-events-none">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Accomplishments</h2>
         </div>
 
-        <motion.div 
+        <motion.div
           ref={containerRef}
-          style={{ x }} 
+          style={{ x }}
           className="flex items-center h-full relative pr-12 md:pr-24 mt-12 md:mt-16"
         >
           <div className="w-[10vw] md:w-[20vw] flex-shrink-0" />
@@ -56,8 +56,8 @@ export function Accomplishments() {
             {SITE_DATA.accomplishments.map((item, index) => {
               const isTop = index % 2 === 0;
               return (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="relative flex-shrink-0 w-[300px] md:w-[400px] h-[400px] flex flex-col justify-center items-center group"
                 >
                   <div className="flex-1 flex flex-col justify-end items-center w-full pb-0">
