@@ -1,7 +1,7 @@
 site_name: ZJUSCT
-site_url: https://docs.zjusct.io/
-repo_name: docs.zjusct.io
-repo_url: https://github.com/ZJUSCT/docs.zjusct.io
+site_url: https://www.zjusct.io/
+repo_name: www.zjusct.io
+repo_url: https://github.com/ZJUSCT/www.zjusct.io
 edit_uri: blob/main/docs/
 site_description: ZJUSCT
 site_author: ZJUSCT
@@ -150,7 +150,7 @@ plugins:
   # 该插件本地编辑时关闭，CI 时自动开启
   - git-committers:
       enabled: false
-      repository: zjusct/docs.zjusct.io
+      repository: zjusct/www.zjusct.io
       branch: main
   - glightbox
   - drawio
