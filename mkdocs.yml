@@ -1,9 +1,9 @@
-site_name: ZJUSCT 文档与博客
+site_name: ZJUSCT
 site_url: https://docs.zjusct.io/
 repo_name: docs.zjusct.io
 repo_url: https://github.com/ZJUSCT/docs.zjusct.io
 edit_uri: blob/main/docs/
-site_description: ZJUSCT Documents & Blogs
+site_description: ZJUSCT
 site_author: ZJUSCT
 copyright: ZJUSCT
 
