@@ -1,0 +1,125 @@
+export const SITE_DATA = {
+  home: {
+    title: "ZJUSCT",
+    role: "Zhejiang University Supercomputing Team",
+    logoText: "Z",
+    bio: `We are students from Zhejiang University Supercomputing Team (ZJUSCT), affiliated to College of Computer Science and Technology, ZJU. 
+    
+    We participate in domestic and international SCC competitions, and provide some public services in ZJU including ZJU Mirror and ZJU Git. We also provide the HPC101 summer course for freshmen in ZJU.`,
+    advisors: [
+      "Jianhai Chen",
+      "Zeke Wang",
+      "Yin Zhang",
+      "Shuibing He"
+    ],
+    interests: [
+      "High Performance Computing",
+      "Hetrogeneous Computing",
+      "MLSys"
+    ],
+    social: {
+      email: "mail@zjusct.io",
+      twitter: "https://twitter.com/ZJUSCT",
+      github: "https://github.com/zjusct"
+    }
+  },
+  accomplishments: [
+    { date: '2025-05-15', title: 'ASC25 Final Round, Application Innovation Award' },
+    { date: '2025-05-15', title: 'ASC25 Final Round, 1st Prize (4th Place)' },
+    { date: '2024-05-01', title: 'ISC 24 SCC, 5th Place' },
+    { date: '2024-04-13', title: 'ASC24 Final Round, The Highest Linpack' },
+    { date: '2024-04-13', title: 'ASC24 Final Round, 1st Prize (4th Place)' },
+    { date: '2023-11-10', title: 'IndySCC 23, FIRST PLACE' },
+    { date: '2023-05-11', title: '10th ASC Final Round, The Highest Linpack' },
+    { date: '2023-05-11', title: '10th ASC Final Round, 1st Prize (4th Place)' },
+    { date: '2022-12-02', title: 'ACM-China lPCC 22 Final Round, 3rd Prize (6th Place)' },
+    { date: '2022-11-18', title: 'SC 22 SCC, 4th Place' },
+    { date: '2022-05-25', title: 'ISC 22 SCC, 5th Place' },
+    { date: '2022-03-25', title: '10th ASC Preliminary Round, 1st Place' },
+    { date: '2021-09-10', title: 'CPC 21 Final Round, 3rd Prize (5th Place)' },
+    { date: '2021-05-10', title: 'ASC 20-21 Final Round, 1st Prize' },
+    { date: '2021-01-10', title: 'ASC 20-21 Preliminary Round, 4th Place' },
+    { date: '2020-09-10', title: 'PAC 20, Application Track, 3rd Prize' },
+    { date: '2020-09-10', title: 'PAC 19, Application Track, 2nd Prize' },
+    { date: '2018-05-10', title: 'ASC 18 Final Round, 1st Prize' },
+    { date: '2016-05-10', title: 'ASC 16 Final Round, e-Prize' },
+    { date: '2016-05-10', title: 'ASC 16 Final Round, The Highest Linpack' },
+    { date: '2016-05-10', title: 'ASC 16 Final Round, 1st Prize' },
+    { date: '2015-05-10', title: 'ASC 15 Final Round, 1st Prize' },
+    { date: '2014-05-10', title: 'ASC 14 Final Round, 1st Prize' },
+  ],
+  projects: [
+    {
+      id: "git",
+      title: "ZJU Git",
+      description: "Git Service for ZJU students",
+      tags: [],
+      icon: "/assets/zju-git.svg",
+      links: [
+        { name: "Site Link", url: "https://git.zju.edu.cn/", icon: "link" }
+      ]
+    },
+    {
+      id: "mirror",
+      title: "ZJU Mirror",
+      description: "ZJU Open Source Mirror Site",
+      tags: ["Public Service"],
+      icon: "/assets/zju-mirror.svg",
+      links: [
+        { name: "Site Link", url: "https://mirror.zju.edu.cn/", icon: "link" },
+        { name: "Manager Code", url: "https://github.com/ZJUSCT/MirrorsDotNet/", icon: "github" },
+        { name: "Front-end Code", url: "https://github.com/ZJUSCT/mirror-front/", icon: "github" }
+      ]
+    },
+    {
+      id: "hpc101",
+      title: "HPC101",
+      description: "An introductory course on High Performance Computing",
+      tags: [],
+      icon: "/assets/zjusct-hpc101.svg",
+      links: [
+        { name: "Site Link", url: "https://hpc101.zjusct.io/", icon: "link" },
+      ]
+    },
+    {
+      id: "hpcweek",
+      title: "HPCWeek",
+      description: "High Performance Computing competition for ZJU students",
+      tags: [],
+      icon: "/assets/hpcweek.jpg",
+      links: [
+        { name: "Site Link", url: "https://oj.clusters.zjusct.io/", icon: "link" },
+        { name: "CSOJ Code", url: "https://github.com/ZJUSCT/CSOJ", icon: "github" }
+      ]
+    },
+  ],
+  publications: [
+    {
+      id: "SCC23",
+      title: "Critique of “productivity, Portability, Performance: Data-Centric Python” by SCC Team From Zhejiang University",
+      authors: ["Zihan Yang", "Yi Chen", "Kaiqi Chen", "Xingjian Qian", "Shaojun Xu", "Yun Pan", "Chong Zeng", "Jianhai Chen", "Yin Zhang", "Zeke Wang"],
+      date: "2023-11-17",
+      publication: "IEEE Transactions on Parallel and Distributed Systems",
+      abstract: "In SC'21, Alexandros Nikolaos Ziogas et al. proposed a Data-Centric Python workflow in their DaCe paper. DaCe provides high productivity, performance, and portability with language extensions and automatic optimizations. We reproduce the performance evaluation results from the paper on both CPU and GPU on the Azure CycleCloud cluster. We also reproduce the scaling results with up to 32 nodes and 64 processes. Our results show that the proposed workflow in that paper has outstanding performance and scalability in the provided cluster, in accordance with the SC paper.",
+      doi: "10.1109/TPDS.2023.3333805"
+    },
+    {
+      id: "PAC20",
+      title: "Calculation and optimization of correlation function in distillation method of lattice quantum chromodynamcis",
+      authors: ["Zhang Ren-Qiang", "Jiang Xiang-Yu", "Yu Jiong-Chi", "Zeng Chong", "Gong Ming", "Xu Shun"],
+      date: "2021-07-01",
+      doi: "10.7498/aps.70.20210030",
+      publication: "Acta Physica Sinica",
+      abstract: "Lattice quantum chromodynamics (lattice QCD) is a theory based on quantum chromodynamics, which is widely used in strong interaction related calculations. As a research method that can give accurate and reliable theoretical results, with the improvement of computer ability, Lattice QCD is playing an increasingly important role in recent years. Distillation method is an important numerical method to calculate hadron correlation function in lattice QCD, and can improve the signal-to-noise ratio of calculated physical quantities...",
+    },
+    {
+      id: "PAC19",
+      title: "Parallel Computing Feature Analysis of Grid Numerical Simulation Software for Lattice Quantum Chromodynamics",
+      authors: ["BI Yu-Jiang", "ZHOU Chao", "WU Yu-Fei", "LI Rui-Xiang", "LIU Zhao-Feng", "CHEN Jian-Hai", "XU Shun"],
+      date: "2020-07-01",
+      doi: "10.15888/j.cnki.csa.007498",
+      publication: "Computer Systems & Applications",
+      abstract: "Lattice Quantum Chromodynamics (QCD) is a non-perturbative method for solving QCD based on the first principles. By simulating the interaction between gluon field and fermion field on super-cubic lattice, the calculated results are considered to be a reliable description of the phenomenon of strong interaction...",
+    }
+  ]
+};
