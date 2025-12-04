@@ -67,12 +67,12 @@ export function Hero() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="mt-4 md:mt-8 flex flex-wrap gap-4 justify-center">
-          <Button size="lg" className="h-11 px-6 md:h-12 md:px-8 rounded-full text-base font-semibold shadow-lg shadow-primary/20 hover:scale-105 transition-transform" asChild>
+          <Button size="lg" className="h-10 px-5 md:h-12 md:px-8 rounded-full text-base font-semibold shadow-lg shadow-primary/20 hover:scale-105 transition-transform" asChild>
             <a href="/guideline/">
               Explore Docs <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
-          <Button size="lg" variant="outline" className="h-11 px-6 md:h-12 md:px-8 rounded-full text-base bg-background/50 backdrop-blur-sm border-border/60 hover:bg-secondary/50 hover:scale-105 transition-transform" asChild>
+          <Button size="lg" variant="outline" className="h-10 px-5 md:h-12 md:px-8 rounded-full text-base bg-background/50 backdrop-blur-sm border-border/60 hover:bg-secondary/50 hover:scale-105 transition-transform" asChild>
             <a href={home.social.github} target="_blank" rel="noreferrer">
               View on GitHub
             </a>
