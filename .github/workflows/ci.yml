@@ -30,6 +30,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'pnpm'
+          cache-dependency-path: 'zjusct-home/pnpm-lock.yaml'
 
       - name: Install dependencies
         run: cd zjusct-home && pnpm install
@@ -38,17 +39,18 @@ jobs:
         run: cd zjusct-home && pnpm build
 
       - name: Package artifact
-        run: cd zjusct-home/dist/assets && tar -czvf home-assets.tar.gz -C out .
+        run: cd zjusct-home/dist && tar -czvf home-assets.tar.gz -C assets .
 
       - name: Upload Homepage Artifact
         uses: actions/upload-artifact@v4
         with:
           name: home-assets.tar.gz
-          path: zjusct-home/dist/assets/home-assets.tar.gz
+          path: zjusct-home/dist/home-assets.tar.gz
 
   deploy:
     name: Build MkDocs and Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    needs: build-homepage
     steps:
       - uses: actions/checkout@v4
         with:
