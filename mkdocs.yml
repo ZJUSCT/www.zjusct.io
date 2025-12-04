@@ -10,9 +10,10 @@ copyright: ZJUSCT
 nav:
   # 已启用 include_dir_to_nav 插件，可使用目录名添加该目录下所有文件
   # 文件按字母序排列，如果同级有其他文件，就需要专门把 index.md 放在最前面
-  - 首页:
-    - index.md
-    - index
+  - 首页: index.md
+  - 文档指引:
+    - guideline/index.md
+    - guideline
   - 🏆 竞赛: competition
   - 🦅 Falcon:
     - falcon/index.md
@@ -24,8 +25,10 @@ nav:
   - ⚙️ 运维: operation
   - ✍️ 博客: blog
 
+
 theme:
   name: material
+  custom_dir: overrides
   logo: assets/zjusct.svg
   favicon: assets/zjusct.png
   palette:
@@ -143,6 +146,7 @@ plugins:
   - blog
   - git-revision-date-localized:
       enable_creation_date: true
+      enable_git_follow: false
   # 该插件本地编辑时关闭，CI 时自动开启
   - git-committers:
       enabled: false

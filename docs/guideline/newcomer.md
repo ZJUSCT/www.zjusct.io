@@ -53,7 +53,7 @@
 
 ### 无盘系统
 
-为了方便运维，集群采用无盘系统设计。细节见 [运维/系统运维/无盘系统](operation/system/diskless)。
+为了方便运维，集群采用无盘系统设计。细节见 [运维/系统运维/无盘系统](../operation/system/diskless/index.md)。
 
 - **引导方式**：PXE 网络引导
 - **根文件系统**：OverlayFS + NFS Root

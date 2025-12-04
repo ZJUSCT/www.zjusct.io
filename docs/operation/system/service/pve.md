@@ -19,7 +19,7 @@ Proxmox Virtual Environment (PVE)
     - subnet 可以进行路由、源 NAT 等配置
     - 设置源 NAT 后，PVE 会在 `/etc/network/interfaces.d` 下的配置文件中添加 `post-up` 和 `post-down` 的 iptables 规则。
 
-        !!! tip "但仅仅在对应接口配置 SNAT 往往是不够的，还需要允许从接口到 WAN 的双向转发。此外，如果需要从节点外访问，还需要在外部配置好路由。请参考 [Linux 网络#nftabls](../../network/linux.md#nftables)。"
+        !!! tip "但仅仅在对应接口配置 SNAT 往往是不够的，还需要允许从接口到 WAN 的双向转发。此外，如果需要从节点外访问，还需要在外部配置好路由。"
 
 其他组件有：
 

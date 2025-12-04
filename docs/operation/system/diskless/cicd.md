@@ -312,8 +312,6 @@ refresh_pattern .               0       20%     4320
     - [Intercept HTTPS CONNECT messages with SSL-Bump | Squid Web Cache wiki](https://wiki.squid-cache.org/ConfigExamples/Intercept/SslBumpExplicit)
     - [Feature: Squid-in-the-middle SSL Bump | Squid Web Cache wiki](https://wiki.squid-cache.org/Features/SslBump)
 
-!!! info "HTTP 代理技术请阅读 [网络运维/代理与虚拟专用网](../../network/proxy_and_vpn.md)"
-
 Squid 作为 HTTP 服务器，从原理上讲是无法代理 HTTPS 流量的。我们可以在其日志中看到它对 CONNECT 方法的处理为 `TCP_TUNNEL` 而不是期望的 `GET` 等 HTTP 方法：
 
 ```text
