@@ -2157,15 +2157,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#访问-ipmi-界面" class="md-nav__link">
+  <a href="#访问带外管理界面" class="md-nav__link">
     <span class="md-ellipsis">
       
-        访问 IPMI 界面
+        访问带外管理界面
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="访问 IPMI 界面">
+    <nav class="md-nav" aria-label="访问带外管理界面">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5511,15 +5511,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#访问-ipmi-界面" class="md-nav__link">
+  <a href="#访问带外管理界面" class="md-nav__link">
     <span class="md-ellipsis">
       
-        访问 IPMI 界面
+        访问带外管理界面
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="访问 IPMI 界面">
+    <nav class="md-nav" aria-label="访问带外管理界面">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5663,12 +5663,6 @@
 
 
 <h1 id="带外管理">带外管理<a class="headerlink" href="#带外管理" title="Permanent link">¶</a></h1>
-<div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled><span class="task-list-indicator"></span></label> Redfish Ansible 自动化介绍</li>
-</ul>
-</div>
 <h2 id="概述">概述<a class="headerlink" href="#概述" title="Permanent link">¶</a></h2>
 <p><strong>带外管理（Out-of-Band Management，OOBM）</strong>是一种通过独立于生产网络的管理平面访问和管理远程位置的设备和基础设施的过程。带外管理允许系统管理员通过远程控制监视和管理服务器及其他网络附加设备，<strong>无论该设备是否已启动或操作系统是否已安装或正常运行</strong>。它与带内管理相对，后者要求被管理系统已启动并通过其操作系统的网络设施可用。</p>
 <p>在服务器上，带外管理通过独立的<strong>基板管理控制器（Baseboard Management Controller，BMC）</strong>芯片实现。只要服务器上电，它就开始工作，监测硬件状态，提供远程控制和监视功能。BMC 通常包括一个嵌入式 Web 服务器，连接到独立的网络接口，可以通过 IPMI、Redfish 或其他协议访问。Linux Foundation 发起了 OpenBMC 项目，旨在定义标准的 BMC 固件栈，但在可以预见的未来，各个厂商的 BMC 仍然会有一定的差异。</p>
@@ -5688,7 +5682,9 @@
     不同服务器厂商的带外管理名称
     </figcaption>
 </figure>
-<p><a href="https://www.intel.la/content/dam/www/public/us/en/documents/specification-updates/ipmi-intelligent-platform-mgt-interface-spec-2nd-gen-v2-0-spec-update.pdf"><strong>IPMI（Intelligent Platform Management Interface）</strong></a>是一种标准的硬件管理接口，BMC 实现了 IPMI 标准，可以通过 IPMI 协议进行远程管理。<a href="https://www.dmtf.org/standards/redfish"><strong>Redfish</strong></a> 是一种新的硬件管理接口，基于 RESTful API，逐渐取代 IPMI。几乎所有服务器都支持 IPMI，目前市售的服务器也大都支持 Redfish。</p>
+<p><a href="https://www.intel.la/content/dam/www/public/us/en/documents/specification-updates/ipmi-intelligent-platform-mgt-interface-spec-2nd-gen-v2-0-spec-update.pdf"><strong>IPMI（Intelligent Platform Management Interface）</strong></a>是一种标准的硬件管理接口，BMC 实现了 IPMI 标准，可以通过 IPMI 协议进行远程管理。</p>
+<p>但 IPMI 协议存在不灵活、可扩展性差等问题，于是诞生了基于 HTTP RESTful API 的 <a href="https://www.dmtf.org/standards/redfish"><strong>Redfish</strong></a>。作为一种新的硬件管理接口，它逐渐取代 IPMI。</p>
+<p>几乎所有服务器都支持 IPMI，目前市售的服务器也大都支持 Redfish。</p>
 <p>关于带外管理技术的发展，可以看下面这篇文章：</p>
 <details class="info">
 <summary><a href="https://blog.csdn.net/asmartkiller/article/details/106558952">云服务器带外管理：从 IPMI 到 RedFish - CSDN</a></summary>
@@ -5707,9 +5703,9 @@
 光有 RESTful API 和 JSON 格式数据是不够的。RedFish 还引入 OData，定义了一组常见的 RESTful Schema，提供 API 之间的互操作性。如描述 JSON 有效负载的模式、URL 约定、通用属性等等。</p>
 <p>自 RedFish 在 2014 年推出以来，几乎所有重要的大厂都已经开启了“红鱼”之旅。如 Dell 在其 iRAC 中加入了 RedFish，SuperMicro 引入了 RedFish。值得一提的是，国产之光的华为服务器的 iBMC 中也全面支持了 RedFish，国产 BIOS 和 BMC 领军企业百敖软件自研 BMC 中也全面支持了 RedFish。最后要多说一句，RedFish 和 IPMI 并不矛盾，很多现有 BMC 同时支持 IPMI 2.0 和 RedFish，有些甚至在 IPMI 上包装了一层 RedFish 界面。全面淘汰 IPMI 还需时日，同时支持两者也保证了过渡的平滑性。</p>
 </details>
-<h2 id="访问-ipmi-界面">访问 IPMI 界面<a class="headerlink" href="#访问-ipmi-界面" title="Permanent link">¶</a></h2>
-<p>集群服务器的 IPMI 界面的域名为 <code>&lt;node_name&gt;-ipmi.clusters.zjusct.io</code>。比如 <code>root</code> 节点的 IPMI 界面为 <a href="https://root-ipmi.clusters.zjusct.io"><code>root-ipmi.clusters.zjusct.io</code></a>。IPMI 账密托管在 VaultWarden 中。</p>
-<p>大部分厂商 IPMI 界面都有帮助手册可以查看。即使没有，操作应该也是十分直观的，这里不进行介绍。</p>
+<h2 id="访问带外管理界面">访问带外管理界面<a class="headerlink" href="#访问带外管理界面" title="Permanent link">¶</a></h2>
+<p>集群服务器的带外管理界面的域名为 <code>&lt;node_name&gt;-ipmi.clusters.zjusct.io</code>。比如 <code>root</code> 节点的带外管理界面为 <a href="https://root-ipmi.clusters.zjusct.io"><code>root-ipmi.clusters.zjusct.io</code></a>。带外管理账密托管在 VaultWarden 中。</p>
+<p>大部分厂商带外管理界面都有帮助手册可以查看。即使没有，操作应该也是十分直观的，这里不进行介绍。</p>
 <p>请自行探索下列功能：</p>
 <ul>
 <li>查看服务器的硬件信息</li>
@@ -5718,18 +5714,18 @@
 <li>控制服务器的风扇转速</li>
 </ul>
 <h3 id="远程挂载镜像">远程挂载镜像<a class="headerlink" href="#远程挂载镜像" title="Permanent link">¶</a></h3>
-<p><strong>远程管理时，可以通过 IPMI 挂载本地/远程的 ISO 镜像到服务器上，从而远程安装操作系统。</strong></p>
-<p>IPMI 界面中可能有两处地方可以找到远程挂载镜像：</p>
+<p><strong>远程管理时，可以挂载本地/远程的 ISO 镜像到服务器上，从而远程安装操作系统。</strong></p>
+<p>带外管理界面中可能有两处地方可以找到远程挂载镜像：</p>
 <ul>
 <li>
 <p>选项卡中的“远程镜像”：</p>
-<p>不同厂商的 IPMI 支持不同的挂载方式，一般为 HTTP 或 NFS。</p>
+<p>不同厂商的带外管理支持不同的挂载方式，一般为 HTTP 或 NFS。</p>
 <p></p><figure markdown="span">
     <center>
     <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../oobm.assets/oobm_remote_image_1.webp" data-desc-position="bottom"><img align="center" alt="oobm_remote_image_1" src="../oobm.assets/oobm_remote_image_1.webp" width="80%"></a>
     </center>
     <figcaption>
-    新华三 IPMI 镜像挂载选项卡
+    新华三带外管理镜像挂载选项卡
     </figcaption>
 </figure><p></p>
 <div class="admonition tip">
@@ -5738,7 +5734,7 @@
 </div>
 <div class="admonition warning">
 <p class="admonition-title">使用 HTTP 服务器</p>
-<p>Python 内置的 HTTP 服务器实现不完善，服务器 IPMI 无法挂载镜像，比如超微：</p>
+<p>Python 内置的 HTTP 服务器实现不完善，比如用下面命令启动的 HTTP 服务器，其镜像无法被超微带外管理挂载：</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8000</span>
 </span></code></pre></div>
 <p>更推荐使用 Nginx Docker：</p>
@@ -5762,13 +5758,13 @@
 <p>以下是一些具体的例子：</p>
 <div class="admonition example">
 <p class="admonition-title">宁畅</p>
-<p>root 是宁畅 IPMI。进入 BMC Settings - Media Redirection，在 Function settings 选项卡中勾选 Remote Media Support，就会出现远程挂载的选项。填写例如下：</p>
-<ul>
-<li>Server Address for CD/DVD Images: <code>192.168.1.1</code></li>
-<li>Path in server:<code>/home/user/download</code></li>
-</ul>
-<p><strong>注意 Path 不应当写文件名，应该写目录名。</strong>Save 后切换到 Remote Media 选项卡即可选择需要挂载的镜像，仅能扫描该目录下的 <code>.iso</code> 文件，不支持递归搜索。选择后点击右侧图标挂载。</p>
 </div>
+<p><code>root</code> 是宁畅带外管理。进入 BMC Settings - Media Redirection，在 Function settings 选项卡中勾选 Remote Media Support，就会出现远程挂载的选项。填写例如下：</p>
+<div class="language-text highlight"><pre><span></span><code>- Server Address for CD/DVD Images: `192.168.1.1`
+- Path in server:`/home/user/download`
+
+**注意 Path 不应当写文件名，应该写目录名。**Save 后切换到 Remote Media 选项卡即可选择需要挂载的镜像，仅能扫描该目录下的 `.iso` 文件，不支持递归搜索。选择后点击右侧图标挂载。
+</code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">新华三</p>
 <p>新华三只支持 NFS/CIFS 挂载。需要安装 Ubuntu，但 Ubuntu 没有 netinst 包。如果使用 KVM 挂载，传输速度极慢。你要是愿意等，并且网络状态稳定，可以慢慢完成安装过程。<strong>但远程管理的网络状况一般不太稳定，镜像容易上传到一半断掉。</strong></p>
@@ -5847,7 +5843,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 3, 2025 06:28:52 UTC">May 3, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 15, 2025 13:50:36 UTC">December 15, 2025</span>
   </span>
 
     
