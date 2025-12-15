@@ -5,10 +5,6 @@ tags:
 
 # 带外管理
 
-!!! todo
-
-    - [ ] Redfish Ansible 自动化介绍
-
 ## 概述
 
 **带外管理（Out-of-Band Management，OOBM）**是一种通过独立于生产网络的管理平面访问和管理远程位置的设备和基础设施的过程。带外管理允许系统管理员通过远程控制监视和管理服务器及其他网络附加设备，**无论该设备是否已启动或操作系统是否已安装或正常运行**。它与带内管理相对，后者要求被管理系统已启动并通过其操作系统的网络设施可用。
@@ -32,7 +28,11 @@ tags:
     </figcaption>
 </figure>
 
-[**IPMI（Intelligent Platform Management Interface）**](https://www.intel.la/content/dam/www/public/us/en/documents/specification-updates/ipmi-intelligent-platform-mgt-interface-spec-2nd-gen-v2-0-spec-update.pdf)是一种标准的硬件管理接口，BMC 实现了 IPMI 标准，可以通过 IPMI 协议进行远程管理。[**Redfish**](https://www.dmtf.org/standards/redfish) 是一种新的硬件管理接口，基于 RESTful API，逐渐取代 IPMI。几乎所有服务器都支持 IPMI，目前市售的服务器也大都支持 Redfish。
+[**IPMI（Intelligent Platform Management Interface）**](https://www.intel.la/content/dam/www/public/us/en/documents/specification-updates/ipmi-intelligent-platform-mgt-interface-spec-2nd-gen-v2-0-spec-update.pdf)是一种标准的硬件管理接口，BMC 实现了 IPMI 标准，可以通过 IPMI 协议进行远程管理。
+
+但 IPMI 协议存在不灵活、可扩展性差等问题，于是诞生了基于 HTTP RESTful API 的 [**Redfish**](https://www.dmtf.org/standards/redfish)。作为一种新的硬件管理接口，它逐渐取代 IPMI。
+
+几乎所有服务器都支持 IPMI，目前市售的服务器也大都支持 Redfish。
 
 关于带外管理技术的发展，可以看下面这篇文章：
 
@@ -58,11 +58,11 @@ tags:
 
     自 RedFish 在 2014 年推出以来，几乎所有重要的大厂都已经开启了“红鱼”之旅。如 Dell 在其 iRAC 中加入了 RedFish，SuperMicro 引入了 RedFish。值得一提的是，国产之光的华为服务器的 iBMC 中也全面支持了 RedFish，国产 BIOS 和 BMC 领军企业百敖软件自研 BMC 中也全面支持了 RedFish。最后要多说一句，RedFish 和 IPMI 并不矛盾，很多现有 BMC 同时支持 IPMI 2.0 和 RedFish，有些甚至在 IPMI 上包装了一层 RedFish 界面。全面淘汰 IPMI 还需时日，同时支持两者也保证了过渡的平滑性。
 
-## 访问 IPMI 界面
+## 访问带外管理界面
 
-集群服务器的 IPMI 界面的域名为 `<node_name>-ipmi.clusters.zjusct.io`。比如 `root` 节点的 IPMI 界面为 [`root-ipmi.clusters.zjusct.io`](https://root-ipmi.clusters.zjusct.io)。IPMI 账密托管在 VaultWarden 中。
+集群服务器的带外管理界面的域名为 `<node_name>-ipmi.clusters.zjusct.io`。比如 `root` 节点的带外管理界面为 [`root-ipmi.clusters.zjusct.io`](https://root-ipmi.clusters.zjusct.io)。带外管理账密托管在 VaultWarden 中。
 
-大部分厂商 IPMI 界面都有帮助手册可以查看。即使没有，操作应该也是十分直观的，这里不进行介绍。
+大部分厂商带外管理界面都有帮助手册可以查看。即使没有，操作应该也是十分直观的，这里不进行介绍。
 
 请自行探索下列功能：
 
@@ -73,20 +73,20 @@ tags:
 
 ### 远程挂载镜像
 
-**远程管理时，可以通过 IPMI 挂载本地/远程的 ISO 镜像到服务器上，从而远程安装操作系统。**
+**远程管理时，可以挂载本地/远程的 ISO 镜像到服务器上，从而远程安装操作系统。**
 
-IPMI 界面中可能有两处地方可以找到远程挂载镜像：
+带外管理界面中可能有两处地方可以找到远程挂载镜像：
 
 - 选项卡中的“远程镜像”：
 
-    不同厂商的 IPMI 支持不同的挂载方式，一般为 HTTP 或 NFS。
+    不同厂商的带外管理支持不同的挂载方式，一般为 HTTP 或 NFS。
 
     <figure markdown="span">
         <center>
         ![oobm_remote_image_1](oobm.assets/oobm_remote_image_1.webp){ width=80% align=center }
         </center>
         <figcaption>
-        新华三 IPMI 镜像挂载选项卡
+        新华三带外管理镜像挂载选项卡
         </figcaption>
     </figure>
 
@@ -96,7 +96,7 @@ IPMI 界面中可能有两处地方可以找到远程挂载镜像：
 
     !!! warning "使用 HTTP 服务器"
 
-        Python 内置的 HTTP 服务器实现不完善，服务器 IPMI 无法挂载镜像，比如超微：
+        Python 内置的 HTTP 服务器实现不完善，比如用下面命令启动的 HTTP 服务器，其镜像无法被超微带外管理挂载：
 
         ```shell
         python3 -m http.server 8000
@@ -125,7 +125,7 @@ IPMI 界面中可能有两处地方可以找到远程挂载镜像：
 
 !!! example "宁畅"
 
-    root 是宁畅 IPMI。进入 BMC Settings - Media Redirection，在 Function settings 选项卡中勾选 Remote Media Support，就会出现远程挂载的选项。填写例如下：
+   `root` 是宁畅带外管理。进入 BMC Settings - Media Redirection，在 Function settings 选项卡中勾选 Remote Media Support，就会出现远程挂载的选项。填写例如下：
 
     - Server Address for CD/DVD Images: `192.168.1.1`
     - Path in server:`/home/user/download`
